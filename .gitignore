@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+ffave/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output files (but keep documentation PDF)
+*.json
+*.npy
+
+# D-Wave config (contains API token!)
+dwave.conf
