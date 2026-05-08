@@ -113,7 +113,7 @@ def instance_metadata(case_label, n, L, probabilities, forbidden_words, forbidde
 # Advanced Case Configuration (Abecedary)
 # ============================================================
 
-CASE_LABEL = "advanced"
+CASE_LABEL = "abecedary_qubo"
 N = 24
 L = 6
 
@@ -125,12 +125,12 @@ LAMBDA_C = 3.0
 LAMBDA_P = 5.0
 LAMBDA_O = 3.0
 
-ROUNDS = 10
+ROUNDS = 100
 TIME_LIMIT_SECONDS = 3
-MAX_DWAVE_SECONDS = 30
+MAX_DWAVE_SECONDS = 300
 
-OUTPUT_RESULTS_JSON = "advanced_qubo_results.json"
-OUTPUT_SUMMARY_JSON = "advanced_qubo_summary.json"
+OUTPUT_RESULTS_JSON = "abecedary_qubo_results.json"
+OUTPUT_SUMMARY_JSON = "abecedary_qubo_summary.json"
 
 
 # ============================================================
@@ -604,7 +604,6 @@ def run_qubo_experiment():
     # STEP 7: Evaluate and report results
     # ------------------------------------------------------------------
     payload = {
-        "script_type": "plain_qubo_fixed",
         "case_label": CASE_LABEL,
         "rounds": ROUNDS,
         "planned_dwave_seconds": planned_dwave_seconds,

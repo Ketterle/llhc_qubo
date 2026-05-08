@@ -101,7 +101,7 @@ def instance_metadata(case_label, n, L, probabilities, forbidden_words, forbidde
 # Base Case Configuration
 # ============================================================
 
-CASE_LABEL = "base"
+CASE_LABEL = "case_base_qubo"
 N = 8
 L = 4
 
@@ -591,7 +591,6 @@ def run_qubo_experiment():
     # STEP 7: Evaluate and report results
     # ------------------------------------------------------------------
     payload = {
-        "script_type": "plain_qubo_fixed",
         "case_label": CASE_LABEL,
         "rounds": ROUNDS,
         "planned_dwave_seconds": planned_dwave_seconds,

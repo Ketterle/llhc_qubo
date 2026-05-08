@@ -98,15 +98,15 @@ def instance_metadata(case_label, n, L, probabilities, forbidden_words, forbidde
 # Intermediate Case Configuration
 # ============================================================
 
-CASE_LABEL = "intermediate"
+CASE_LABEL = "intermediate_classical"
 N = 8
 L = 4
 
 FORBIDDEN_WORDS = set()
 FORBIDDEN_PREFIXES = ("11",)
 
-OUTPUT_RESULTS_JSON = "intermediate_case_cpsat_results.json"
-OUTPUT_SUMMARY_JSON = "intermediate_case_cpsat_summary.json"
+OUTPUT_RESULTS_JSON = "intermediate_cpsat_results.json"
+OUTPUT_SUMMARY_JSON = "intermediate_cpsat_summary.json"
 
 
 # ============================================================
@@ -362,7 +362,6 @@ def run_classical_experiment():
     }
 
     summary = {
-        "experiment": "cp_sat_intermediate",
         "case_label": CASE_LABEL,
         "backend": "cp_sat_classical_reference",
         "status": status_name,

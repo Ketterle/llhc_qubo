@@ -129,7 +129,7 @@ def instance_metadata(case_label, n, L, probabilities, forbidden_words, forbidde
 # Advanced Case Configuration
 # ============================================================
 
-CASE_LABEL = "advanced"
+CASE_LABEL = "abecedary_classical"
 N = 24
 L = 6
 
@@ -142,8 +142,8 @@ PROBABILITY_SCALE = 100000
 ENFORCE_PROBABILITY_LENGTH_ORDER = True
 LOG_SEARCH_PROGRESS = True
 
-OUTPUT_RESULTS_JSON = "advanced_case_cpsat_results.json"
-OUTPUT_SUMMARY_JSON = "advanced_case_cpsat_summary.json"
+OUTPUT_RESULTS_JSON = "abecedary_cpsat_results.json"
+OUTPUT_SUMMARY_JSON = "abecedary_cpsat_summary.json"
 
 
 # ============================================================
@@ -530,7 +530,6 @@ def run_classical_experiment():
     }
 
     summary = {
-        "experiment": "cpsat_advanced",
         "case_label": CASE_LABEL,
         "backend": "cpsat_classical_reference",
         "status": result["status"],

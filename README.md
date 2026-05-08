@@ -69,116 +69,31 @@ where:
 
 ---
 
-## Probability Model
-
-All three cases use **harmonic (Zipf) distribution**:
-
-```
-p_i = (1/i) / Σ(j=1 to N)(1/j),  ∀ i ∈ {1, ..., N}
-```
-
-### Base & Intermediate Cases (N=8):
-
-**Formula:**
-```
-p_i = (1/i) / Σ(j=1 to 8)(1/j),  ∀ i ∈ {1, ..., 8}
-```
-
-**Normalization constant:** `Σ(j=1 to 8)(1/j) = 2.7178571429`
-
-**Probability values:**
-- p₁ = 0.367937
-- p₂ = 0.183968
-- p₃ = 0.122646
-- p₄ = 0.091984
-- p₅ = 0.073587
-- p₆ = 0.061323
-- p₇ = 0.052562
-- p₈ = 0.045992
-
-**Entropy:** H(X) = 2.619715 bits/symbol
-
-### Advanced Case (N=24):
-
-**Formula:**
-```
-p_i = (1/i) / Σ(j=1 to 24)(1/j),  ∀ i ∈ {1, ..., 24}
-```
-
-**Normalization constant:** `Σ(j=1 to 24)(1/j) = 3.7759581778`
-
-**Probability values (first 5):**
-- p₁ = 0.264833
-- p₂ = 0.132417
-- p₃ = 0.088278
-- p₄ = 0.066208
-- p₅ = 0.052967
-- ... (continues to p₂₄ = 0.011035)
-
-**Entropy:** H(X) = 3.843676 bits/symbol
-
----
-
-## Dictionary Structures
-
-### Base & Intermediate Cases: Full Dictionary
-
-**Structure:**
-- All `2^l` binary words of length l for `1 ≤ l ≤ L`
-- **Total words:** `Σ(l=1 to L) 2^l = 2^(L+1) - 2`
-
-**For L=4:**
-- Length 1: 2 words (0, 1)
-- Length 2: 4 words (00, 01, 10, 11)
-- Length 3: 8 words
-- Length 4: 16 words
-- **Total: 30 words**
-
-**Filtering (Intermediate only):**
-- Remove all words starting with "11"
-- Results in **27 admissible words**
-
-### Advanced Case: Abecedary Dictionary
-
-**Structure:**
-```
-Number of words at length l:
-  n_l = { 2,           if l = 1
-        { 3·2^(l-2),   if l ≥ 2
-```
-
-**Rationale:** Models linguistic distributions where short words are scarce but longer words grow exponentially.
-
-**For L=6 (before filtering):**
-- Length 1: 2 words
-- Length 2: 3 words
-- Length 3: 6 words
-- Length 4: 12 words
-- Length 5: 24 words
-- Length 6: 48 words
-- **Total: 95 words**
-
-**After filtering "11" prefix:**
-- **95 admissible words** (abecedary structure prevents "11" in first 3 positions)
-
----
 
 ## Project Structure
 
 ```
 .
 ├── QUANTUM SOLVERS (QUBO Formulation - D-Wave Hybrid)
-│   ├── base_case_uniform.py              # QUBO for Base Case
-│   ├── intermediate_case_uniform.py       # QUBO for Intermediate Case
-│   └── advanced_case_uniform.py           # QUBO for Advanced Case (Abecedary)
+│   ├── base_case_qubo.py              # QUBO for Base Case
+│   ├── intermediate_qubo.py           # QUBO for Intermediate Case
+│   └── abecedary_qubo.py              # QUBO for Advanced Case (Abecedary)
 │
 ├── CLASSICAL SOLVERS (Reference Implementations)
-│   ├── base_case_classical.py             # Package-Merge for Base Case
-│   ├── intermediate_case_classical.py     # CP-SAT for Intermediate Case
-│   └── advanced_case_classical.py         # CP-SAT for Advanced Case (Abecedary)
+│   ├── base_case_classical.py         # Package-Merge for Base Case
+│   ├── intermediate_classical.py      # CP-SAT for Intermediate Case
+│   └── abecedary_classical.py         # CP-SAT for Advanced Case (Abecedary)
 │
 ├── DOCUMENTATION
-    ├── QUBO_Matrices_All_Cases.pdf        # 118-page QUBO matrix visualizations
+│   └── QUBO_Matrices_All_Cases.pdf    # 118-page QUBO matrix visualizations
+│
+├── RESULTS
+│   ├── abecedary_qubo_results.json
+│   ├── abecedary_sat_results.json
+│   ├── base_case_package_merge_results.json
+│   ├── base_case_qubo_results.json
+│   ├── intermediate_qubo_results.json
+│   └── intermediate_sat_results.jsonces_All_Cases.pdf      
 ```
 
 ---
@@ -486,71 +401,7 @@ All scripts follow a **uniform 7-step structure**:
 
 ---
 
-## Comparison: Classical vs. QUBO
 
-### Approach Comparison
-
-| Aspect | Classical (Package-Merge / CP-SAT) | QUBO (D-Wave Hybrid) |
-|--------|-----------------------------------|----------------------|
-| **Methodology** | Exact/heuristic optimization | Quantum-inspired annealing |
-| **Hardware** | CPU (multi-threaded) | Hybrid quantum-classical |
-| **Formulation** | Constraint satisfaction | Quadratic unconstrained |
-| **Guarantees** | Optimal (PM) / Near-optimal (SAT) | Best-effort feasible |
-| **Setup** | Standard Python packages | D-Wave Leap account required |
-| **Time/Round** | 0.01s - 60s | 10s per round |
-| **Typical Rounds** | 1 | 100 |
-| **Total Time** | 0.01s - 60s | 15-20 minutes |
-| **Cost** | Free | Leap minutes (free tier available) |
-
-### Problem Complexity Comparison
-
-| Metric | Base | Intermediate | Advanced |
-|--------|------|--------------|----------|
-| **N (Symbols)** | 8 | 8 | 24 |
-| **L (Max Length)** | 4 | 4 | 6 |
-| **Full Dictionary Size** | 30 | 30 | 126 |
-| **Admissible Words** | 30 | 27 | 95 |
-| **Prefix Conflicts** | 20 | 15 | 387 |
-| **x Variables** | 32 | 32 | 144 |
-| **y Variables** | 30 | 27 | 95 |
-| **Total Variables** | 62 | 59 | 239 |
-| **QUBO Matrix Size** | 62×62 | 59×59 | 239×239 |
-| **Classical Solve Time** | <0.01s | 1-5s | 10-60s |
-| **QUBO Solve Time** | ~15-20 min | ~15-20 min | ~15-20 min |
-
----
-
-## Expected Results
-
-### Theoretical Lower Bounds (Shannon Entropy)
-
-The **Shannon entropy** provides a theoretical lower bound on expected codeword length:
-
-| Case | Entropy H(X) | Interpretation |
-|------|--------------|----------------|
-| **Base** | 2.6197 bits/symbol | Minimum possible average length |
-| **Intermediate** | 2.6197 bits/symbol | Same distribution as Base |
-| **Advanced** | 3.8437 bits/symbol | More symbols = higher entropy |
-
-### Typical Solution Quality
-
-**Base Case:**
-- **Classical (Package-Merge):** ~2.62 bits (OPTIMAL, matches entropy)
-- **QUBO (D-Wave):** ~2.62-2.70 bits (high feasibility rate)
-
-**Intermediate Case:**
-- **Classical (CP-SAT):** ~2.16-2.30 bits (OPTIMAL)
-- **QUBO (D-Wave):** ~2.20-2.40 bits (feasibility rate ~80%)
-
-**Advanced Case:**
-- **Classical (CP-SAT):** ~3.90-4.10 bits (OPTIMAL/near-optimal)
-- **QUBO (D-Wave):** ~4.00-4.30 bits (feasibility rate ~60-80%)
-
-**Note:** QUBO solvers may find infeasible solutions (constraint violations). The scripts track both:
-- Best overall energy (may be infeasible)
-- Best feasible energy (all constraints satisfied)
-
----
 
 ## Quick Start Summary
 
@@ -593,5 +444,3 @@ python intermediate_case_uniform.py      # QUBO
 python advanced_case_classical.py   # Classical
 python advanced_case_uniform.py     # QUBO
 ```
-
-**Ready to explore classical vs. quantum optimization for prefix-free codes!** 🚀

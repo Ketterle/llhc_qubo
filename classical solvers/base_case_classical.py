@@ -95,7 +95,7 @@ def instance_metadata(case_label, n, L, probabilities, forbidden_words, forbidde
 # Base Case Configuration
 # ============================================================
 
-CASE_LABEL = "base"
+CASE_LABEL = "base_case_classical"
 N = 8
 L = 4
 
@@ -338,7 +338,6 @@ def run_classical_experiment():
     }
 
     summary = {
-        "experiment": "package_merge_base",
         "case_label": CASE_LABEL,
         "backend": "package_merge_classical_reference",
         "status": "OPTIMAL",
