@@ -1,0 +1,165 @@
+{
+  "script_type": "package_merge_easy_reference",
+  "case_label": "easy",
+  "rounds": 1,
+  "parameters": {
+    "backend": "package_merge_classical_reference",
+    "n": 8,
+    "L": 4,
+    "forbidden_words": [],
+    "forbidden_prefixes": [],
+    "probabilities": [
+      0.3679369250985545,
+      0.18396846254927726,
+      0.12264564169951817,
+      0.09198423127463863,
+      0.0735873850197109,
+      0.06132282084975908,
+      0.052562417871222074,
+      0.045992115637319315
+    ]
+  },
+  "total_elapsed_seconds": 0.0010154247283935547,
+  "best_overall": {
+    "round": 1,
+    "seed": null,
+    "backend_name": "package_merge_classical_reference",
+    "case_label": "easy",
+    "status": "OPTIMAL",
+    "feasible": true,
+    "objective_expected_length": 2.6815593517301792,
+    "lengths": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4
+    ],
+    "length_counts": {
+      "1": 0,
+      "2": 2,
+      "3": 2,
+      "4": 4
+    },
+    "selected_words": [
+      "00",
+      "01",
+      "100",
+      "101",
+      "1100",
+      "1101",
+      "1110",
+      "1111"
+    ],
+    "symbol_to_code": {
+      "1": "00",
+      "2": "01",
+      "3": "100",
+      "4": "101",
+      "5": "1100",
+      "6": "1101",
+      "7": "1110",
+      "8": "1111"
+    },
+    "metrics": {
+      "expected_length": 2.6815593517301792,
+      "prefix_feasible": true,
+      "active_prefix_conflicts": [],
+      "order_feasible": true,
+      "feasible": true
+    },
+    "elapsed_seconds": 0.0010154247283935547,
+    "instance": {
+      "case_label": "easy",
+      "n": 8,
+      "L": 4,
+      "probability_model": "harmonic_normalized",
+      "entropy": 2.6197148131073633,
+      "forbidden_words": [],
+      "forbidden_prefixes": [],
+      "dictionary_size_full": 30,
+      "dictionary_size_admissible": 30,
+      "restriction_severity": 0.0,
+      "prefix_conflicts": 68,
+      "prefix_conflict_density": 0.15632183908045977,
+      "binary_variables_length": 32,
+      "binary_variables_selection": 30,
+      "binary_variables_total": 62
+    }
+  },
+  "all_rounds": [
+    {
+      "round": 1,
+      "seed": null,
+      "backend_name": "package_merge_classical_reference",
+      "case_label": "easy",
+      "status": "OPTIMAL",
+      "feasible": true,
+      "objective_expected_length": 2.6815593517301792,
+      "lengths": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4
+      ],
+      "length_counts": {
+        "1": 0,
+        "2": 2,
+        "3": 2,
+        "4": 4
+      },
+      "selected_words": [
+        "00",
+        "01",
+        "100",
+        "101",
+        "1100",
+        "1101",
+        "1110",
+        "1111"
+      ],
+      "symbol_to_code": {
+        "1": "00",
+        "2": "01",
+        "3": "100",
+        "4": "101",
+        "5": "1100",
+        "6": "1101",
+        "7": "1110",
+        "8": "1111"
+      },
+      "metrics": {
+        "expected_length": 2.6815593517301792,
+        "prefix_feasible": true,
+        "active_prefix_conflicts": [],
+        "order_feasible": true,
+        "feasible": true
+      },
+      "elapsed_seconds": 0.0010154247283935547,
+      "instance": {
+        "case_label": "easy",
+        "n": 8,
+        "L": 4,
+        "probability_model": "harmonic_normalized",
+        "entropy": 2.6197148131073633,
+        "forbidden_words": [],
+        "forbidden_prefixes": [],
+        "dictionary_size_full": 30,
+        "dictionary_size_admissible": 30,
+        "restriction_severity": 0.0,
+        "prefix_conflicts": 68,
+        "prefix_conflict_density": 0.15632183908045977,
+        "binary_variables_length": 32,
+        "binary_variables_selection": 30,
+        "binary_variables_total": 62
+      }
+    }
+  ]
+}

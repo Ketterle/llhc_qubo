@@ -1,0 +1,168 @@
+{
+  "script_type": "sat_intermediate_reference",
+  "case_label": "intermediate",
+  "rounds": 1,
+  "parameters": {
+    "backend": "cp_sat",
+    "n": 8,
+    "L": 4,
+    "forbidden_words": [],
+    "forbidden_prefixes": [
+      "11"
+    ],
+    "max_time_seconds": 60.0,
+    "num_search_workers": 8,
+    "probability_scale": 100000,
+    "probabilities": [
+      0.3679369250985545,
+      0.18396846254927726,
+      0.12264564169951817,
+      0.09198423127463863,
+      0.0735873850197109,
+      0.06132282084975908,
+      0.052562417871222074,
+      0.045992115637319315
+    ]
+  },
+  "total_elapsed_seconds": 0.10092973709106445,
+  "best_overall": {
+    "round": 1,
+    "seed": null,
+    "backend_name": "cp_sat",
+    "case_label": "intermediate",
+    "status": "OPTIMAL",
+    "feasible": true,
+    "objective_expected_length": 2.712220762155059,
+    "lengths": [
+      1,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "selected_words": [
+      "0000",
+      "0001",
+      "0010",
+      "0011",
+      "0100",
+      "0101",
+      "011",
+      "1"
+    ],
+    "symbol_to_code": {
+      "1": "1",
+      "2": "011",
+      "3": "0000",
+      "4": "0001",
+      "5": "0010",
+      "6": "0011",
+      "7": "0100",
+      "8": "0101"
+    },
+    "metrics": {
+      "expected_length": 2.712220762155059,
+      "prefix_feasible": true,
+      "active_prefix_conflicts": [],
+      "order_feasible": true,
+      "feasible": true
+    },
+    "branches": 168,
+    "conflicts": 62,
+    "wall_time": 0.0948195,
+    "elapsed_seconds": 0.10092973709106445,
+    "instance": {
+      "case_label": "intermediate",
+      "n": 8,
+      "L": 4,
+      "probability_model": "harmonic_normalized",
+      "entropy": 2.6197148131073633,
+      "forbidden_words": [],
+      "forbidden_prefixes": [
+        "11"
+      ],
+      "dictionary_size_full": 30,
+      "dictionary_size_admissible": 23,
+      "restriction_severity": 0.23333333333333328,
+      "prefix_conflicts": 51,
+      "prefix_conflict_density": 0.2015810276679842,
+      "binary_variables_length": 32,
+      "binary_variables_selection": 23,
+      "binary_variables_total": 55
+    }
+  },
+  "all_rounds": [
+    {
+      "round": 1,
+      "seed": null,
+      "backend_name": "cp_sat",
+      "case_label": "intermediate",
+      "status": "OPTIMAL",
+      "feasible": true,
+      "objective_expected_length": 2.712220762155059,
+      "lengths": [
+        1,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "selected_words": [
+        "0000",
+        "0001",
+        "0010",
+        "0011",
+        "0100",
+        "0101",
+        "011",
+        "1"
+      ],
+      "symbol_to_code": {
+        "1": "1",
+        "2": "011",
+        "3": "0000",
+        "4": "0001",
+        "5": "0010",
+        "6": "0011",
+        "7": "0100",
+        "8": "0101"
+      },
+      "metrics": {
+        "expected_length": 2.712220762155059,
+        "prefix_feasible": true,
+        "active_prefix_conflicts": [],
+        "order_feasible": true,
+        "feasible": true
+      },
+      "branches": 168,
+      "conflicts": 62,
+      "wall_time": 0.0948195,
+      "elapsed_seconds": 0.10092973709106445,
+      "instance": {
+        "case_label": "intermediate",
+        "n": 8,
+        "L": 4,
+        "probability_model": "harmonic_normalized",
+        "entropy": 2.6197148131073633,
+        "forbidden_words": [],
+        "forbidden_prefixes": [
+          "11"
+        ],
+        "dictionary_size_full": 30,
+        "dictionary_size_admissible": 23,
+        "restriction_severity": 0.23333333333333328,
+        "prefix_conflicts": 51,
+        "prefix_conflict_density": 0.2015810276679842,
+        "binary_variables_length": 32,
+        "binary_variables_selection": 23,
+        "binary_variables_total": 55
+      }
+    }
+  ]
+}
